@@ -1,6 +1,6 @@
 {
-  "version": "v20.44.38 (patches dev.4.mpp)",
-  "versionCode": 8,
-  "zipUrl": "https://github.com/rodrigoswz/morpher/releases/download/8/youtube-morphe-module-v20.44.38-all.zip",
+  "version": "v20.44.38 (patches dev.5.mpp)",
+  "versionCode": 9,
+  "zipUrl": "https://github.com/rodrigoswz/morpher/releases/download/9/youtube-morphe-module-v20.44.38-all.zip",
   "changelog": "https://raw.githubusercontent.com/rodrigoswz/morpher/update/build.md"
 }
