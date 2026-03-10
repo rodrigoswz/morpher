@@ -15,7 +15,7 @@ rv-brand = "Morphe"
 build-mode = "both"
 include-stock = true
 riplib = true
-#arch = "arm64-v8a"
+arch = "arm64-v8a"
 #dpi = "nodpi"
 patcher-args = "-e 'Hide Shorts components' -OhideShortsAppShortcut=true -OhideShortsWidget=true"
 archive-dlurl = "https://archive.org/download/geologically/apks/com.google.android.youtube"
