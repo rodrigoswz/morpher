@@ -16,9 +16,69 @@ build-mode = "both"
 include-stock = true
 riplib = true
 arch = "arm64-v8a"
-#dpi = "nodpi"
 patcher-args = "-e 'Hide Shorts components' -OhideShortsAppShortcut=true -OhideShortsWidget=true"
 archive-dlurl = "https://archive.org/download/geologically/apks/com.google.android.youtube"
 github_release-dlurl = "https://github.com/E85Addict/APKs/releases/latest"
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+
+[Twitter]
+enabled = true 
+app-name = "Twitter"
+rv-brand = "Piko"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "crimera/piko"
+cli-source = "MorpheApp/morphe-cli"
+patcher-args = "--continue-on-error"
+dpi = "120-640dpi 480dpi nodpi anydpi"
+included-patches = "'Bring back twitter' 'Browse tweet object' 'Dynamic color'"
+uptodown-dlurl = "https://twitter.en.uptodown.com/android"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter/"
+
+[Duolingo]
+enabled = true
+app-name = "Duolingo"
+rv-brand = "Hoo-dles"
+riplib = true
+arch = "arm64-v8a"
+dpi = "120-640dpi nodpi anydpi"
+patches-source = "hoo-dles/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://duolingo.en.uptodown.com/android"
+apkmirror-dlurl = "https://apkmirror.com/apk/duolingo/duolingo-duolingo"
+archive-dlurl = "https://archive.org/download/geologically/apks/com.duolingo"
+
+[Proton-VPN]
+enabled = true
+app-name = "Proton-VPN"
+rv-brand = "Hoo-dles"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "hoo-dles/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://protonvpn.en.uptodown.com/android"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn"
+archive-dlurl = "https://archive.org/download/geologically/apks/ch.protonvpn.android"
+
+[FotMob]
+enabled = true
+app-name = "FotMob"
+rv-brand = "Hoo-dles"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "hoo-dles/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://protonvpn.en.uptodown.com/android"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/fotmob-as/fotmob-live-soccer-scores/"
+
+[Amazon-Prime-Video]
+enabled = true
+app-name = "Amazon-Prime-Video"
+rv-brand = "Hoo-dles"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "hoo-dles/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://www.apkmirror.com/apk/amazon-mobile-llc/amazon-prime-video/"
+apkmirror-dlurl = "https://amazon-video.en.uptodown.com/android"
