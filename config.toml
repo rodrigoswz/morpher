@@ -3,7 +3,7 @@ logging-to-file = true
 compression-level = 9
 parallel-jobs = 1
 
-patches-version = "dev"   # 'latest', 'dev', or a version number. default: "latest"
+patches-version = "latest"   # 'latest', 'dev', or a version number. default: "latest"
 cli-version = "latest"       # 'latest', 'dev', or a version number. default: "latest"
 
 [YouTube]
