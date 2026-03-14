@@ -23,7 +23,7 @@ apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 
 [Twitter]
-enabled = true 
+enabled = false 
 app-name = "Twitter"
 rv-brand = "Piko"
 riplib = true
@@ -36,7 +36,7 @@ uptodown-dlurl = "https://twitter.en.uptodown.com/android"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter/"
 
 [Duolingo]
-enabled = true
+enabled = false
 app-name = "Duolingo"
 rv-brand = "Hoo-dles"
 riplib = true
@@ -48,7 +48,7 @@ apkmirror-dlurl = "https://apkmirror.com/apk/duolingo/duolingo-duolingo"
 archive-dlurl = "https://archive.org/download/geologically/apks/com.duolingo"
 
 [Proton-VPN]
-enabled = true
+enabled = false
 app-name = "Proton-VPN"
 rv-brand = "Hoo-dles"
 riplib = true
@@ -60,7 +60,7 @@ apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonvp
 archive-dlurl = "https://archive.org/download/geologically/apks/ch.protonvpn.android"
 
 [FotMob]
-enabled = true
+enabled = false
 app-name = "FotMob"
 rv-brand = "Hoo-dles"
 riplib = true
@@ -71,7 +71,7 @@ uptodown-dlurl = "https://protonvpn.en.uptodown.com/android"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/fotmob-as/fotmob-live-soccer-scores/"
 
 [Amazon-Prime-Video]
-enabled = true
+enabled = false
 app-name = "Amazon-Prime-Video"
 rv-brand = "Hoo-dles"
 riplib = true
