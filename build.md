@@ -6,6 +6,6 @@ YouTube: 20.45.36
 
 [GitHub](https://github.com/nullcpy/rvb) | [Group Chat](https://t.me/rvb27) | [Channel](https://t.me/rvb28)
   
-CLI: MorpheApp/morphe-cli-1.5.0-all.jar  
-Patches: MorpheApp/patches-1.20.0.mpp  
-[Changelog](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.20.0)  
+CLI: MorpheApp/morphe-cli-1.6.1-all.jar  
+Patches: MorpheApp/patches-1.21.0.mpp  
+[Changelog](https://github.com/MorpheApp/morphe-patches/releases/tag/v1.21.0)  
