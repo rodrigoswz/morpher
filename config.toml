@@ -1,31 +1,82 @@
-enable-module-update = true
+enable-magisk-update = true
+logging-to-file = true
+compression-level = 9
 parallel-jobs = 1
-patches-version = "latest"
-cli-version = "latest"
 
-# add 'enabled = false' for not patching a specific app or remove it from the config
-# see https://github.com/elohim-etz/morphe-builder/blob/main/CONFIG.md for more detailed explanations
+patches-version = "latest"   # 'latest', 'dev', or a version number. default: "latest"
+cli-version = "latest"       # 'latest', 'dev', or a version number. default: "latest"
 
-# you can use rvmm-config-gen to generate a config
-
-# Morphe
 [YouTube]
+enabled = true
 app-name = "YouTube"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
 rv-brand = "Morphe"
 build-mode = "both"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube"
-uptodown-dlurl = "https://youtube.en.uptodown.com/android"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.youtube"
-
-[Music]
-app-name = "Music"
-patches-source = "MorpheApp/morphe-patches"
-cli-source = "MorpheApp/morphe-cli"
-rv-brand = "Morphe"
-build-mode = "both"
+include-stock = true
+riplib = true
 arch = "arm64-v8a"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/youtube-music"
-uptodown-dlurl = "https://youtube-music.en.uptodown.com/android"
-archive-dlurl = "https://archive.org/download/jhc-apks/apks/com.google.android.apps.youtube.music"
+patcher-args = "-e 'Hide Shorts components' -OhideShortsAppShortcut=true -OhideShortsWidget=true"
+archive-dlurl = "https://archive.org/download/geologically/apks/com.google.android.youtube"
+github_release-dlurl = "https://github.com/E85Addict/APKs/releases/latest"
+apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube"
+uptodown-dlurl = "https://youtube.en.uptodown.com/android"
+
+[Twitter]
+enabled = false 
+app-name = "Twitter"
+rv-brand = "Piko"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "crimera/piko"
+cli-source = "MorpheApp/morphe-cli"
+patcher-args = "--continue-on-error"
+included-patches = "'Bring back twitter' 'Browse tweet object' 'Dynamic color'"
+uptodown-dlurl = "https://twitter.en.uptodown.com/android"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter/"
+
+[Duolingo]
+enabled = false
+app-name = "Duolingo"
+rv-brand = "Hoo-dles"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "hoo-dles/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://duolingo.en.uptodown.com/android"
+apkmirror-dlurl = "https://apkmirror.com/apk/duolingo/duolingo-duolingo"
+archive-dlurl = "https://archive.org/download/geologically/apks/com.duolingo"
+
+[Proton-VPN]
+enabled = false
+app-name = "Proton-VPN"
+rv-brand = "Hoo-dles"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "hoo-dles/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://protonvpn.en.uptodown.com/android"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/proton-technologies-ag/protonvpn-secure-and-free-vpn"
+archive-dlurl = "https://archive.org/download/geologically/apks/ch.protonvpn.android"
+
+[FotMob]
+enabled = false
+app-name = "FotMob"
+rv-brand = "Hoo-dles"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "hoo-dles/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://protonvpn.en.uptodown.com/android"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/fotmob-as/fotmob-live-soccer-scores/"
+
+[Amazon-Prime-Video]
+enabled = false
+app-name = "Amazon-Prime-Video"
+rv-brand = "Hoo-dles"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "hoo-dles/morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://www.apkmirror.com/apk/amazon-mobile-llc/amazon-prime-video/"
+apkmirror-dlurl = "https://amazon-video.en.uptodown.com/android"
