@@ -59,19 +59,21 @@ jobs:
           cat build.md >> "$GITHUB_OUTPUT"
           echo "${DELIM}" >> "$GITHUB_OUTPUT"
           cp -f build.md build.tmp
+      
+      - name: Upload release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
+          BODY: ${{ steps.get_output.outputs.BUILD_LOG }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --title "Release" --notes "$BODY"
+            gh release upload "$TAG" ./build/* --clobber
+          else
+            gh release create "$TAG" ./build/* --title "Release" --notes "$BODY"
+          fi
 
-      - name: Upload modules to release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          body: ${{ steps.get_output.outputs.BUILD_LOG }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ./build/*
-          release_name: Morphe
-          tag: ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
-          file_glob: true
-          overwrite: true
-
-      - name: Update changelog and update json
+      - name: Update modules changelog and update json
         id: update_config
         run: |
           git checkout -f update || git switch --discard-changes --orphan update
@@ -100,12 +102,19 @@ jobs:
 
           find . -name "*-update.json" | grep . || : >dummy-update.json
 
-      - uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          branch: update
-          skip_checkout: true
-          file_pattern: build.md *-update.json
-          commit_message: Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
+      - name: Commit module json changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      
+          git add build.md *-update.json
+      
+          if ! git diff --cached --quiet; then
+            git commit -m "Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}"
+            git push origin HEAD:update
+          else
+            echo "no changes!"
+          fi
 
       - name: Report to Telegram
         env:
@@ -123,7 +132,16 @@ jobs:
           MUSIC_VER=$(grep -oP 'Music: \K[0-9.]+' build.md || echo "N/A")
           CLI_VER=$(grep -oP 'morphe-cli-\K[0-9.]+' build.md || echo "N/A")
           PATCHES_VER=$(grep -oP 'patches-\K[0-9.]+-dev\.[0-9]+' build.md || grep -oP 'patches-\K[0-9.]+' build.md || echo "N/A")
+          PATCHES_CHANGELOG=$(grep -oP '\[Changelog\]\(\K[^)]+' build.md | head -1 || echo "")
           
+          LINKS="• [GitHub Release](${RELEASE_URL})"
+          if [ -n "$PATCHES_CHANGELOG" ]; then
+            LINKS="${LINKS}
+          • [Patches Changelog](${PATCHES_CHANGELOG})"
+          fi
+          LINKS="${LINKS}
+          • [Builder Source](https://github.com/elohim-etz/morphe-builder)"
+
           MSG="🚀 *New Morphe CI Build Available!*
 
           *📦 YouTube:* \`${YOUTUBE_VER}\`
@@ -143,10 +161,9 @@ jobs:
           • Non-root: Install APK + [MicroG-RE](https://github.com/MorpheApp/MicroG-RE/releases)
 
           *Links:*
-          • [Full Changelog](${RELEASE_URL})
-          • [Builder Source](https://github.com/elohim-etz/morphe-builder)
+          ${LINKS}
 
-          _Built with ❤️ by_ [𝙴𝙻𝙾𝙷𝙸𝙼](https://t.me/elohim152)"
+          Built with ❤️ by [𝙴𝙻𝙾𝙷𝙸𝙼](https://t.me/elohim152)"
           
           cd build
           declare -A YT_MODULES YT_APKS MUSIC_MODULES MUSIC_APKS
@@ -275,3 +292,29 @@ jobs:
             echo "$RESPONSE"
             exit 1
           fi
+
+      - name: Notify Telegram on Failure
+        if: failure()
+        env:
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+        run: |
+          BUILD_NUM="${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}"
+          WORKFLOW_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+
+          MSG="❌ *Morphe Build Failed!*
+
+          *Build:* \`#${BUILD_NUM}\`
+          *Repo:* \`$GITHUB_REPOSITORY\`
+          *Triggered by:* \`$GITHUB_ACTOR\`
+
+          [View Failed Run](${WORKFLOW_URL})"
+
+          curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"chat_id\": \"$TG_CHAT_ID\",
+              \"text\": \"$MSG\",
+              \"parse_mode\": \"Markdown\",
+              \"disable_web_page_preview\": true
+            }"
