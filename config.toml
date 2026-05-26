@@ -24,7 +24,7 @@ apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 
 [Twitter]
-enabled = true
+enabled = false
 app-name = "Twitter"
 rv-brand = "Piko"
 riplib = true
