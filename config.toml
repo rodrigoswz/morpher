@@ -7,7 +7,7 @@ patches-version = "latest"   # 'latest', 'dev', or a version number. default: "l
 cli-version = "latest"       # 'latest', 'dev', or a version number. default: "latest"
 
 [YouTube]
-enabled = false
+enabled = true
 app-name = "YouTube"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
@@ -19,7 +19,6 @@ arch = "arm64-v8a"
 excluded-patches = "'Custom branding icon for YouTube' 'Custom branding name for YouTube'"
 patcher-args = "-e 'Hide Shorts components' -OhideShortsAppShortcut=true -OhideShortsWidget=true"
 archive-dlurl = "https://archive.org/download/geologically/apks/com.google.android.youtube"
-github_release-dlurl = "https://github.com/E85Addict/APKs/releases/latest"
 apkmirror-dlurl = "https://apkmirror.com/apk/google-inc/youtube"
 uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 
