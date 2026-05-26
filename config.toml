@@ -28,7 +28,6 @@ enabled = true
 app-name = "Twitter"
 rv-brand = "Piko"
 riplib = true
-# arch = "arm64-v8a"
 patches-source = "crimera/piko"
 cli-source = "MorpheApp/morphe-cli"
 patcher-args = "--continue-on-error"
