@@ -7,7 +7,7 @@ patches-version = "latest"   # 'latest', 'dev', or a version number. default: "l
 cli-version = "latest"       # 'latest', 'dev', or a version number. default: "latest"
 
 [YouTube]
-enabled = true
+enabled = false
 app-name = "YouTube"
 patches-source = "MorpheApp/morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
