@@ -27,7 +27,6 @@ uptodown-dlurl = "https://youtube.en.uptodown.com/android"
 enabled = true
 app-name = "Twitter"
 rv-brand = "Piko"
-riplib = true
 patches-source = "crimera/piko"
 cli-source = "MorpheApp/morphe-cli"
 patcher-args = "--continue-on-error"
