@@ -33,7 +33,7 @@ patches-source = "crimera/piko"
 cli-source = "MorpheApp/morphe-cli"
 patcher-args = "--continue-on-error"
 included-patches = "'Bring back twitter' 'Browse tweet object' 'Dynamic color'"
-github-dlurl = "https://github.com/krvstek/uni-storage/releases/tag/x-twitter"
+github_release-dlurl = "https://github.com/krvstek/uni-storage/releases/tag/x-twitter"
 # uptodown-dlurl = "https://twitter.en.uptodown.com/android"
 # apkmirror-dlurl = "https://www.apkmirror.com/apk/x-corp/twitter/"
 
