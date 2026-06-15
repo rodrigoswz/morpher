@@ -31,4 +31,15 @@ arch = "arm64-v8a"
 patches-source = "jasonwu1994/Gboard-patches"
 cli-source = "MorpheApp/morphe-cli"
 uptodown-dlurl = "https://gboard-go.en.uptodown.com/android"
-apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard/"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard"
+
+[Microsoft Edge]
+enabled = true
+app-name = "Edge"
+rv-brand = "quantavil"
+riplib = true
+arch = "arm64-v8a"
+patches-source = "quantavil/edge-morphe-patches"
+cli-source = "MorpheApp/morphe-cli"
+uptodown-dlurl = "https://microsoft-edge.en.uptodown.com/android"
+apkmirror-dlurl = "https://www.apkmirror.com/apk/microsoft-corporation/microsoft-edge"
