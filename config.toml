@@ -34,7 +34,7 @@ uptodown-dlurl = "https://gboard-go.en.uptodown.com/android"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard"
 
 [Microsoft-Edge]
-enabled = true
+enabled = false
 app-name = "Edge"
 rv-brand = "quantavil"
 riplib = true
