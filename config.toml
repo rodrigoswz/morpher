@@ -33,7 +33,7 @@ cli-source = "MorpheApp/morphe-cli"
 uptodown-dlurl = "https://gboard-go.en.uptodown.com/android"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/google-inc/gboard"
 
-[Microsoft Edge]
+[Microsoft-Edge]
 enabled = true
 app-name = "Edge"
 rv-brand = "quantavil"
