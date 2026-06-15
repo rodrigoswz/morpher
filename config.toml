@@ -41,5 +41,6 @@ riplib = true
 arch = "arm64-v8a"
 patches-source = "quantavil/edge-morphe-patches"
 cli-source = "MorpheApp/morphe-cli"
+included-patches = "'Disable Play Store updates'"
 uptodown-dlurl = "https://microsoft-edge.en.uptodown.com/android"
 apkmirror-dlurl = "https://www.apkmirror.com/apk/microsoft-corporation/microsoft-edge"
